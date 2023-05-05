@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="container" >
       <header>
-        <strong>Karina  Nutri</strong>
+        <strong>Project Nutri</strong>
       </header>
 
       {nutri.map((item)=>{ //Map para percorrer os itens do arry Nutri
