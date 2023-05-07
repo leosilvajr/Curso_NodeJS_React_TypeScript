@@ -21,6 +21,7 @@ function App() {
     }
 
     loadApi();
+    //CARREGANDO LOADAPI
 
   },[]);
 
