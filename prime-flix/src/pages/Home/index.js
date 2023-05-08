@@ -10,6 +10,7 @@ import './home.css';
 function Home(){
 
     const [filmes, setFilmes] = useState([]); //Vai começar com array vazio
+    const [loading, setLoading] = useState(true); //Booleano
 
     useEffect(() => {
 
@@ -24,10 +25,20 @@ function Home(){
 
             //console.log(response.data.results.slice(0,10)); //Pegar do 0 a 9
             setFilmes(response.data.results.slice(0,10))
+            setLoading(false); //Apos carregar os filmes o loading some.
         }
 
         loadFilmes();
     }, [])
+
+
+    if(loading){ //Se o loading estiver true
+        return(
+            <div className="loading">
+                <h2>Carregando ...</h2>
+            </div>
+        )
+    }
 
     return(
         <div className="container">
