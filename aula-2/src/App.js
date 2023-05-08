@@ -1,11 +1,8 @@
-import React from "react";
-import RoutesApp from "./routes";
-
-//Instalar roteamento de paginas "npm install react-router-dom"
+import RoutesApp from './routes';
 
 function App() {
   return (
-    <RoutesApp/>
+      <RoutesApp/>    
   );
 }
 
