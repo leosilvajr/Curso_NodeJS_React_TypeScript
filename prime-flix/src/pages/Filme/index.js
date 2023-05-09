@@ -2,7 +2,8 @@ import {useEffect, useState} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './filme-info.css';
 import api from '../../services/api'
-import {toast} from 'react-toastify'
+import { NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function Filme(){
 
@@ -50,13 +51,13 @@ function Filme(){
         const hasFilme = filmesSalvos.some( (filmesSalvos) => filmesSalvos.id === filme.id)
 
         if(hasFilme){
-            toast.warn("Esse filme ja está na lista.");
+            NotificationManager.warning('Esse filme já está na lista.');
             return;
         }
 
         filmesSalvos.push(filme);
         localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos))
-        toast.success("Salvo com sucesso.");
+        NotificationManager.success('Salvo com sucesso.');
     }
 
     if(loading){
@@ -83,6 +84,7 @@ function Filme(){
                         Trailer
                     </a>
                 </button>
+
             </div>
         </div>
     )   

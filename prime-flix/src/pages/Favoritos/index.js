@@ -2,6 +2,8 @@ import {useEffect , useState} from 'react';
 //Usado para pegar dados no LocalStorage
 import { Link } from 'react-router-dom';
 import {toast} from 'react-toastify'
+import { NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 import './favoritos.css'
 
@@ -21,7 +23,7 @@ function Favoritos(){
         })
         setFilmes(filtroFilmes); //Falta remover do localstorage
         localStorage.setItem("@primeflix", JSON.stringify(filtroFilmes))
-        toast.success("Filme removido com sucesso.")
+        NotificationManager.success('Removido com sucesso.');
     }
 
     return(
