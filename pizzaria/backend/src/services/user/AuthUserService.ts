@@ -1,5 +1,6 @@
 import primaClient from "../../prisma";
 import {compare} from 'bcryptjs';
+import {sign} from 'jsonwebtoken'; //Registrar e gerar um token
 
 //Quero que quando meu usuario faça o login ,seja enviado o email e a senha.
 
@@ -28,8 +29,23 @@ class AuthUserService{
         }
 
         //Gerar um token JWT e devolver os dados do usuario. id, name, email
+        const token = sign(
+            {
+                name: user.name,
+                email: user.email
+            },
+            process.env.JWT_SECRET,{
+                subject: user.id,
+                expiresIn: '30d'
+            } 
+        )
 
-        return {ok: true}
+        return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            token: token
+        }
     }
 }
 

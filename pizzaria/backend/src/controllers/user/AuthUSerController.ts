@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { AuthUserService } from '../../services/user/AuthUserSerice';
+import { AuthUserService } from '../../services/user/AuthUserService';
 
 
 class AuthUSerController{
