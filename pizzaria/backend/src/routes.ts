@@ -1,12 +1,11 @@
-import { Router, Request, Response} from 'express';
+import { Router} from 'express';
+import {CreateUserController} from './controllers/user/CreateUserController';
 
 const router = Router();
 
 //Criando a rota da API         //Tipando o req e o res
-router.get('/teste', (req: Request, res: Response) => {
-    return res.json({nome: 'Site Online !'})
-    //throw new Error('Erro ao fazer requisição.')
-});
+// -- ROTAS USER --
+router.post('/users' , new CreateUserController().handle)
 
 //Exportando o router para conseguir acessar o arquivo.
 export { router };
