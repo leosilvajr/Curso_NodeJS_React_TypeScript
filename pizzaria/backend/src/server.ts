@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
+import path from 'path'
 
 import { router } from './routes';
 
@@ -9,6 +10,11 @@ app.use(express.json());
 app.use(cors())
 
 app.use(router); //Roteamento
+
+app.use(
+    '/files',
+    express.static(path.resolve(__dirname, '..', 'tmp'))
+);
 
 //Midleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) =>{
@@ -24,4 +30,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) =>{
     })
 });
 
-app.listen(3333, () => console.log('O Pai ta ON'))
+app.listen(3333, () => console.log('O Servidor está online, vamos trabalhar.'))
