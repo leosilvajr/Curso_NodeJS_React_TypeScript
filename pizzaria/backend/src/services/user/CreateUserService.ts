@@ -1,5 +1,5 @@
 //Vamos importar o prismaCliente para ter acesso ao banco de dados.
-import primaClient from "../../prisma";
+import prismaClient from "../../prisma";
 
 import { hash } from 'bcryptjs'
 
@@ -19,7 +19,7 @@ class CreateUserService{
         }
 
         //Verificar se esse email ja esta cadastrado.
-        const userAlreadyExists = await primaClient.user.findFirst({
+        const userAlreadyExists = await prismaClient.user.findFirst({
             where:{
                 email : email
             }
@@ -32,7 +32,7 @@ class CreateUserService{
         const passwordHash = await hash(password, 8)
 
         //Cadastrar um usuário no banco de dados.
-        const user = await primaClient.user.create({
+        const user = await prismaClient.user.create({
             data:{
                 name:name,
                 email:email,
@@ -42,6 +42,7 @@ class CreateUserService{
                 id: true,
                 name: true,
                 email: true,
+                
             }
         })
         return user;

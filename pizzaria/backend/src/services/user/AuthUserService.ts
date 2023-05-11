@@ -1,4 +1,4 @@
-import primaClient from "../../prisma";
+import prismaClient from "../../prisma";
 import {compare} from 'bcryptjs';
 import {sign} from 'jsonwebtoken'; //Registrar e gerar um token
 
@@ -13,7 +13,7 @@ class AuthUserService{
     async execute({email,password}: AuthRequest){
 
         //Vrificar se o email existe
-        const user = await primaClient.user.findFirst({
+        const user = await prismaClient.user.findFirst({
             where:{
                 email: email
             }
