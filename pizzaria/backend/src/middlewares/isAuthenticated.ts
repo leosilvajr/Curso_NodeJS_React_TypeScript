@@ -31,6 +31,9 @@ export function isAuthenticated(
             process.env.JWT_SECRET
         ) as PayLoad ; //Vai devolver 
 
+        //Dentro do request temos um express DECLARADO NO index.d.ts
+        req.user_id = sub;  //Recuperar o ID do token e colocar dentro de uma variavel no request.
+
         //A pos a validação do token vamos prosseguir com a aplicação.
         return next();
 
