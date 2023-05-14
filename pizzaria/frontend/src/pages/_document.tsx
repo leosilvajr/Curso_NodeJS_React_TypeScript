@@ -1,17 +1,15 @@
-//Montando estrutura de renderização.
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head, Main, NextScript} from 'next/document'
 
 export default function Document(){
-    return(
-        <Html>
-            <Head>
-            </Head>
+  return(
+    <Html>
+      <Head>
 
-            <body>
-                <Main/>
-                <NextScript/>
-            </body>
-            
-        </Html>
-    )
+      </Head>
+      <body>
+        <Main/>
+        <NextScript/>
+      </body>
+    </Html>
+  )
 }
